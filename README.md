@@ -39,7 +39,7 @@ In the example folder, the script ``compute_multiscale_centrality.py`` can be us
 where ``GRAPH_NAME`` could be:
 * ``karate``
 * ``celegans``
-* ``delaunay`
+* ``delaunay``
 
 
 Alternatively, the Multiscale Centrality can easily be adapted to be applied to other graphs - see the readme in the test folder.  
