@@ -16,7 +16,7 @@ def generate_graph(tpe='SM', params= {}):
 
         G = nx.karate_club_graph()
         for i in G:
-            G.node[i]['old_label'] = G.node[i]['club']+' ' + str(i)
+            G.nodes[i]['old_label'] = G.nodes[i]['club']+' ' + str(i)
 
         for i,j in G.edges:
             G[i][j]['weight'] = 1. 
@@ -37,7 +37,7 @@ def generate_graph(tpe='SM', params= {}):
 
         #create the position vector for plotting
         for i in G.nodes():
-            pos[i] = [posx[G.node[i]['old_label']-1],posy[G.node[i]['old_label']-1]]
+            pos[i] = [posx[G.nodes[i]['old_label']-1],posy[G.nodes[i]['old_label']-1]]
 
     elif tpe == 'celegans':
         """
@@ -48,7 +48,7 @@ def generate_graph(tpe='SM', params= {}):
         G, pos, labels, neuron_type, colors = create_celegans(location = '../datasets/celegans/')
 
         for i in G:
-            G.node[i]['old_label'] = G.node[i]['labels']
+            G.nodes[i]['old_label'] = G.nodes[i]['labels']
             G.nodes[i]['type'] = neuron_type[i]
 
     elif tpe == 'celegans_undirected':
@@ -60,7 +60,7 @@ def generate_graph(tpe='SM', params= {}):
         G, pos, labels, neuron_type, colors = create_celegans(location = '../datasets/celegans/')
 
         for i in G:
-            G.node[i]['old_label'] = G.node[i]['labels']
+            G.nodes[i]['old_label'] = G.nodes[i]['labels']
 
         G = G.to_undirected()
 

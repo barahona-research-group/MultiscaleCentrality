@@ -167,7 +167,7 @@ class Multiscale_Centrality(object):
                 print('Not defined!')
                 
             #compute the spectral gap of largest connected component
-            graphs = sorted(nx.connected_component_subgraphs(self.G), key = len, reverse=True)
+            graphs = sorted(nx.connected_components(self.G), key=len, reverse=True)
             if len(graphs)>1:
                 print('WARNING: graph not connected!')
 
