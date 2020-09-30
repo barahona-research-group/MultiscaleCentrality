@@ -24,10 +24,24 @@ For more information please see our published [paper](https://journals.aps.org/p
 Please cite our paper if you use this code in your own work:
 
 ```
-Scale-dependent measure of network centrality from diffusion dynamics
-Alexis Arnaudon, Robert L. Peach, and Mauricio Barahona
-Phys. Rev. Research 2, 033104 – Published 20 July 2020
+Arnaudon, Alexis, Robert L. Peach, and Mauricio Barahona. "Scale-dependent measure of network centrality from diffusion dynamics." Physical Review Research 2.3 (2020): 033104.
 ```
+
+The bibtex code:
+
+```
+@article{arnaudon2020scale,
+  title={Scale-dependent measure of network centrality from diffusion dynamics},
+  author={Arnaudon, Alexis and Peach, Robert L and Barahona, Mauricio},
+  journal={Physical Review Research},
+  volume={2},
+  number={3},
+  pages={033104},
+  year={2020},
+  publisher={APS}
+}
+```
+
 ## Installation
 
 Required packages: numpy/scipy/matplotlib/networkx/forceatlas2 . 
