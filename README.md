@@ -8,9 +8,13 @@ Classic measures of graph centrality capture distinct aspects of node importance
 
 The code in this repository implements the MSC algorithm and contains a small pipeline to run examples on classic graphs. 
 
+
 <p align="center">
   <img src="doc/figure_msc.png" width="800" />
 </p>
+
+In the Figure above we can see the results of Multiscale Centrality applied to the Karate club network and the Dolphin interaction network. The Markov time is the scaling parameter, whereby at short timescales we identify locally central nodes (such as high degree nodes) whilst at long timescales we identify globally central nodes (such as high closeness). Notice how the positions of the central nodes changes as mapped onto the original network structures.
+
 
 For more information please see our published [paper](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033104).
 
