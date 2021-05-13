@@ -42,6 +42,7 @@ class Multiscale_Centrality(object):
         self.rw_tpe = rw_tpe #type of random walk, continuous or discrete
         self.alpha = alpha # for discrete random walks
         self.rev = rev #for directed graph, reverse flow or not (False/True)
+        self.node_mask = np.ones(len(G))
 
         self.time_spectral_gap = True #set to false for no time rescaling
         
@@ -278,7 +279,8 @@ class Multiscale_Centrality(object):
         distances = [] #np.zeros([self.n, self.n_t]) #empty distance matrix
 
         for tau in range(self.n_t): #for each tau
-            id_reachable = np.argwhere(p_t[:tau+1].max(0) > self.v + self.precision).flatten() #find reachable nodes
+            
+            id_reachable = np.argwhere((p_t[:tau+1]*self.node_mask).max(0) > self.v + self.precision).flatten() #find reachable nodes
             distance = (self.t_max + 1e8)*np.ones(self.n) #set the distance to unreachable to all: (t_max+1)
             distance[id_reachable] = self.Times[np.argmax(p_t[:tau+1, id_reachable], axis=0)] #set the time for reachable nodes
 
