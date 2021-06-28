@@ -279,7 +279,8 @@ class Multiscale_Centrality(object):
 
         for tau in range(self.n_t): #for each tau
             
-            id_reachable = np.argwhere((p_t[:tau+1]*self.node_mask).max(0) > self.v + self.precision).flatten() #find reachable nodes
+            #id_reachable = np.argwhere((p_t[:tau+1]*self.node_mask).max(0) > self.v + self.precision).flatten() #find reachable nodes
+            id_reachable = np.argwhere((p_t[:tau+1]).max(0) > self.v + self.precision).flatten() #find reachable nodes
             distance = (self.t_max + 1e8)*np.ones(self.n) #set the distance to unreachable to all: (t_max+1)
             distance[id_reachable] = self.Times[np.argmax(p_t[:tau+1, id_reachable], axis=0)] #set the time for reachable nodes
 
@@ -336,11 +337,11 @@ class Multiscale_Centrality(object):
                                       total = self.n_target,
                                       disable=self.disable_tqdm))
             
-            
+        self.out = out
         self.pair_distances = np.zeros([self.n_t, self.n, self.n])
 
-        for i in self.target_nodes:
-            self.pair_distances[:, i, :] = np.array(out[i])
+        for i,node in enumerate(self.target_nodes):
+            self.pair_distances[:, node, :] = np.array(out[i])
             
         if self.n_target < len(self.G):
             for t in range(self.n_t):
